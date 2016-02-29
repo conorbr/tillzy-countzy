@@ -1,0 +1,101 @@
+.body
+  %h1
+    Till Count
+  %p Insert a number into one of the input fields below:
+  %input#e{:onkeyup => "converte('e')"}
+    2 euro (g) =
+  %input#ee{:onkeyup => "converte('ee')"}
+    2 euro total
+  %br
+  %input#f{:onkeyup => "convertf('f')"}
+    1 euro (g) =
+  %input#ff{:onkeyup => "convertf('ff')"}
+    1 euro total
+  %br
+  %input#g{:onkeyup => "convertg('g')"}
+    50 cent (g) =
+  %input#gg{:onkeyup => "convertg('gg')"}
+    50 cent total
+  %br
+  %input#h{:onkeyup => "converth('h')"}
+    20 cent (g) =
+  %input#hh{:onkeyup => "converth('hh')"}
+    20 cent total
+  %br
+  %input#i{:onkeyup => "converti('i')"}
+    10 cent (g) =
+  %input#ii{:onkeyup => "converti('ii')"}
+    10 cent total
+  %br
+  %input#j{:onkeyup => "convertj('j')"}
+    5 cent (g) =
+  %input#jj{:onkeyup => "convertj('jj')"}
+    5 cent total
+  %br
+  %input#k{:onkeyup => "convertk('k')"}
+    2 cent (g) =
+  %input#kk{:onkeyup => "convertk('kk')"}
+    2 cent total
+  %br
+  %input#l{:onkeyup => "convertl('l')"}
+    1 cent (g) =
+  %input#ll{:onkeyup => "convertl('ll')"}
+    1 cent total
+
+<script>
+function converte(eurotwo) {
+if (eurotwo == "e") {
+ee = document.getElementById("e").value / 8.5 * 2;
+document.getElementById("ee").value = Math.round(ee);
+}
+}
+
+function convertf(euroone) {
+if (euroone == "f") {
+ff = document.getElementById("f").value / 7.5;
+document.getElementById("ff").value = Math.round(ff);
+}
+}
+
+function convertg(eurofifty) {
+if (eurofifty == "g") {
+gg = document.getElementById("g").value / 7.8 * .50;
+document.getElementById("gg").value = Math.round(gg);
+}
+}
+
+function converth(eurotwent) {
+if (eurotwent == "h") {
+hh = document.getElementById("h").value / 5.74 * .20;
+document.getElementById("hh").value = Math.round(hh);
+}
+}
+
+function converti(euroten) {
+if (euroten == "i") {
+ii = document.getElementById("i").value / 4.10 * .10;
+document.getElementById("ii").value = Math.round(ii);
+}
+}
+
+function convertj(eurofive) {
+if (eurofive == "j") {
+jj = document.getElementById("j").value / 3.92 * .05;
+document.getElementById("jj").value = Math.round(jj);
+}
+}
+
+function convertk(eurotwocent) {
+if (eurotwocent == "k") {
+kk = document.getElementById("k").value / 3.06 * .02;
+document.getElementById("kk").value = Math.round(kk);
+}
+}
+
+function convertl(euroonecent) {
+if (euroonecent == "l") {
+ll = document.getElementById("l").value / 2.30 *.01;
+document.getElementById("ll").value = Math.round(ll);
+}
+}
+</script>
