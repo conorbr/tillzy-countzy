@@ -1,46 +1,45 @@
-.body
-  %h1
-    Till Count
-  %p Insert a number into one of the input fields below:
-  %input#e{:onkeyup => "converte('e')"}
-    2 euro (g) =
-  %input#ee{:onkeyup => "converte('ee')"}
-    2 euro total
-  %br
-  %input#f{:onkeyup => "convertf('f')"}
-    1 euro (g) =
-  %input#ff{:onkeyup => "convertf('ff')"}
-    1 euro total
-  %br
-  %input#g{:onkeyup => "convertg('g')"}
-    50 cent (g) =
-  %input#gg{:onkeyup => "convertg('gg')"}
-    50 cent total
-  %br
-  %input#h{:onkeyup => "converth('h')"}
-    20 cent (g) =
-  %input#hh{:onkeyup => "converth('hh')"}
-    20 cent total
-  %br
-  %input#i{:onkeyup => "converti('i')"}
-    10 cent (g) =
-  %input#ii{:onkeyup => "converti('ii')"}
-    10 cent total
-  %br
-  %input#j{:onkeyup => "convertj('j')"}
-    5 cent (g) =
-  %input#jj{:onkeyup => "convertj('jj')"}
-    5 cent total
-  %br
-  %input#k{:onkeyup => "convertk('k')"}
-    2 cent (g) =
-  %input#kk{:onkeyup => "convertk('kk')"}
-    2 cent total
-  %br
-  %input#l{:onkeyup => "convertl('l')"}
-    1 cent (g) =
-  %input#ll{:onkeyup => "convertl('ll')"}
-    1 cent total
+/ till count form
+%form#msform
+  / fieldsets
+  %fieldset
+    %h2.fs-title till count
+    %h3.fs-subtitle Enter Coins by Weight
+    %input#e.in{:onkeyup => "converte('e')", :placeholder => "2 Euro (g)"}/
+    %input#ee.out{:onkeyup => "converte('ee')"}/
+    %input#f.in{:onkeyup => "convertf('f')", :placeholder => "1 Euro (g)"}/
+    %input#ee.out{:onkeyup => "converte('ff')"}/
+    %input#g.in{:onkeyup => "convertg('g')", :placeholder => ".50 cent (g)"}/
+    %input#gg.out{:onkeyup => "convertg('gg')"}/
+    %input#h.in{:onkeyup => "converth('h')", :placeholder => ".20 cent (g)"}/
+    %input#hh.out{:onkeyup => "converth('hh')"}/
+    %input#i.in{:onkeyup => "converti('i')", :placeholder => ".10 cent (g)"}/
+    %input#ii.out{:onkeyup => "converti('ii')"}/
+    %input#j.in{:onkeyup => "convertj('j')", :placeholder => ".05 cent (g)"}/
+    %input#jj.out{:onkeyup => "convertj('jj')"}/
+    %input#k.in{:onkeyup => "convertk('k')", :placeholder => ".02 cent (g)"}/
+    %input#kk.out{:onkeyup => "convertk('kk')"}/
+    %input#l.in{:onkeyup => "convertl('l')", :placeholder => ".01 cent (g)"}/
+    %input#ll.out{:onkeyup => "convertl('ll')"}/
+  %fieldset
+    %h2.fs-title Social Profiles
+    %h3.fs-subtitle Your presence on the social network
+    %input{:name => "twitter", :placeholder => "Twitter", :type => "text"}/
+    %input{:name => "facebook", :placeholder => "Facebook", :type => "text"}/
+    %input{:name => "gplus", :placeholder => "Google Plus", :type => "text"}/
+    %input.previous.action-button{:name => "previous", :type => "button", :value => "Previous"}/
+    %input.next.action-button{:name => "next", :type => "button", :value => "Next"}/
+  %fieldset
+    %h2.fs-title Personal Details
+    %h3.fs-subtitle We will never sell it
+    %input{:name => "fname", :placeholder => "First Name", :type => "text"}/
+    %input{:name => "lname", :placeholder => "Last Name", :type => "text"}/
+    %input{:name => "phone", :placeholder => "Phone", :type => "text"}/
+    %textarea{:name => "address", :placeholder => "Address"}
+    %input.previous.action-button{:name => "previous", :type => "button", :value => "Previous"}/
+    %input.submit.action-button{:name => "submit", :type => "submit", :value => "Submit"}/
+
+
+
 
 <script>
 function converte(eurotwo) {
