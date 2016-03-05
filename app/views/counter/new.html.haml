@@ -2,41 +2,48 @@
 %form#msform
   / fieldsets
   %fieldset
-    %h2.fs-title till count
+    %h2.fs-title Till Count
     %h3.fs-subtitle Enter Coins by Weight
-    %input#e.in{:onkeyup => "converte('e')", :placeholder => "2 Euro (g)"}/
-    %input#ee.out{:onkeyup => "converte('ee')"}/
-    %input#f.in{:onkeyup => "convertf('f')", :placeholder => "1 Euro (g)"}/
-    %input#ee.out{:onkeyup => "converte('ff')"}/
-    %input#g.in{:onkeyup => "convertg('g')", :placeholder => ".50 cent (g)"}/
-    %input#gg.out{:onkeyup => "convertg('gg')"}/
-    %input#h.in{:onkeyup => "converth('h')", :placeholder => ".20 cent (g)"}/
-    %input#hh.out{:onkeyup => "converth('hh')"}/
-    %input#i.in{:onkeyup => "converti('i')", :placeholder => ".10 cent (g)"}/
-    %input#ii.out{:onkeyup => "converti('ii')"}/
-    %input#j.in{:onkeyup => "convertj('j')", :placeholder => ".05 cent (g)"}/
-    %input#jj.out{:onkeyup => "convertj('jj')"}/
-    %input#k.in{:onkeyup => "convertk('k')", :placeholder => ".02 cent (g)"}/
-    %input#kk.out{:onkeyup => "convertk('kk')"}/
-    %input#l.in{:onkeyup => "convertl('l')", :placeholder => ".01 cent (g)"}/
-    %input#ll.out{:onkeyup => "convertl('ll')"}/
-  %fieldset
-    %h2.fs-title Social Profiles
-    %h3.fs-subtitle Your presence on the social network
-    %input{:name => "twitter", :placeholder => "Twitter", :type => "text"}/
-    %input{:name => "facebook", :placeholder => "Facebook", :type => "text"}/
-    %input{:name => "gplus", :placeholder => "Google Plus", :type => "text"}/
-    %input.previous.action-button{:name => "previous", :type => "button", :value => "Previous"}/
-    %input.next.action-button{:name => "next", :type => "button", :value => "Next"}/
-  %fieldset
-    %h2.fs-title Personal Details
-    %h3.fs-subtitle We will never sell it
-    %input{:name => "fname", :placeholder => "First Name", :type => "text"}/
-    %input{:name => "lname", :placeholder => "Last Name", :type => "text"}/
-    %input{:name => "phone", :placeholder => "Phone", :type => "text"}/
-    %textarea{:name => "address", :placeholder => "Address"}
-    %input.previous.action-button{:name => "previous", :type => "button", :value => "Previous"}/
-    %input.submit.action-button{:name => "submit", :type => "submit", :value => "Submit"}/
+    %input#e.in{:onkeyup => "converte('e'); getItems('total')", :placeholder => "2 Euro (g)"}/
+    %input#ee.out{:onkeyup => "converte('ee')", :name => "output", :value => "0"}/
+    %input#f.in{:onkeyup => "convertf('f'); getItems('total')", :placeholder => "1 Euro (g)"}/
+    %input#ff.out{:onkeyup => "converte('ff')", :name => "output", :value => "0"}/
+    %input#g.in{:onkeyup => "convertg('g'); getItems('total')", :placeholder =>".50 cent (g)"}/
+    %input#gg.out{:onkeyup => "convertg('gg')", :name => "output", :value => "0"}/
+    %input#h.in{:onkeyup => "converth('h'); getItems('total')", :placeholder => ".20 cent (g)"}/
+    %input#hh.out{:onkeyup => "converth('hh')", :name => "output", :value => "0"}/
+    %input#i.in{:onkeyup => "converti('i'); getItems('total')", :placeholder => ".10 cent (g)"}/
+    %input#ii.out{:onkeyup => "converti('ii')", :name => "output", :value => "0"}/
+    %input#j.in{:onkeyup => "convertj('j'); getItems('total')", :placeholder => ".05 cent (g)"}/
+    %input#jj.out{:onkeyup => "convertj('jj')", :name => "output", :value => "0"}/
+    %input#k.in{:onkeyup => "convertk('k'); getItems('total')", :placeholder => ".02 cent (g)"}/
+    %input#kk.out{:onkeyup => "convertk('kk')", :name => "output", :value => "0"}/
+    %input#l.in{:onkeyup => "convertl('l'); getItems('total')", :placeholder => ".01 cent (g)"}/
+    %input#ll.out{:onkeyup => "convertl('ll')", :name => "output", :value => "0"}/
+    .total-line
+    %input#x.out{:onkeyup => "getItems('total')",:placeholder => "Add to Total", :name => "output", :value => "0"}
+    %input#tot{:onkeyup => "getItems('total')", :value => "0"}/
+
+
+
+
+  / %fieldset
+  /   %h2.fs-title Social Profiles
+  /   %h3.fs-subtitle Your presence on the social network
+  /   %input{:name => "twitter", :placeholder => "Twitter", :type => "text"}/
+  /   %input{:name => "facebook", :placeholder => "Facebook", :type => "text"}/
+  /   %input{:name => "gplus", :placeholder => "Google Plus", :type => "text"}/
+  /   %input.previous.action-button{:name => "previous", :type => "button", :value => "Previous"}/
+  /   %input.next.action-button{:name => "next", :type => "button", :value => "Next"}/
+  / %fieldset
+  /   %h2.fs-title Personal Details
+  /   %h3.fs-subtitle We will never sell it
+  /   %input{:name => "fname", :placeholder => "First Name", :type => "text"}/
+  /   %input{:name => "lname", :placeholder => "Last Name", :type => "text"}/
+  /   %input{:name => "phone", :placeholder => "Phone", :type => "text"}/
+  /   %textarea{:name => "address", :placeholder => "Address"}
+  /   %input.previous.action-button{:name => "previous", :type => "button", :value => "Previous"}/
+  /   %input.submit.action-button{:name => "submit", :type => "submit", :value => "Submit"}/
 
 
 
@@ -58,43 +65,55 @@ document.getElementById("ff").value = Math.round(ff);
 
 function convertg(eurofifty) {
 if (eurofifty == "g") {
-gg = document.getElementById("g").value / 7.8 * .50;
-document.getElementById("gg").value = Math.round(gg);
+gg = document.getElementById("g").value / 7.80;
+document.getElementById("gg").value = (Math.round(gg) * .50) .toFixed(2);
 }
 }
 
 function converth(eurotwent) {
 if (eurotwent == "h") {
-hh = document.getElementById("h").value / 5.74 * .20;
-document.getElementById("hh").value = Math.round(hh);
+hh = document.getElementById("h").value / 5.74;
+document.getElementById("hh").value = (Math.round(hh) * .20).toFixed(2);
 }
 }
 
 function converti(euroten) {
 if (euroten == "i") {
-ii = document.getElementById("i").value / 4.10 * .10;
-document.getElementById("ii").value = Math.round(ii);
+ii = document.getElementById("i").value / 4.10;
+document.getElementById("ii").value = (Math.round(ii) * .10).toFixed(2);
 }
 }
 
 function convertj(eurofive) {
 if (eurofive == "j") {
-jj = document.getElementById("j").value / 3.92 * .05;
-document.getElementById("jj").value = Math.round(jj);
+jj = document.getElementById("j").value / 3.92;
+document.getElementById("jj").value = (Math.round(jj) * .05).toFixed(2);
 }
 }
 
 function convertk(eurotwocent) {
 if (eurotwocent == "k") {
-kk = document.getElementById("k").value / 3.06 * .02;
-document.getElementById("kk").value = Math.round(kk);
+kk = document.getElementById("k").value / 3.06 * 2;
+document.getElementById("kk").value = (Math.round(kk) * .02).toFixed(2);
 }
 }
 
 function convertl(euroonecent) {
 if (euroonecent == "l") {
-ll = document.getElementById("l").value / 2.30 *.01;
-document.getElementById("ll").value = Math.round(ll);
+ll = document.getElementById("l").value / 2.30 * 1;
+document.getElementById("ll").value = (Math.round(ll) * .01).toFixed(2);
 }
+}
+
+function getItems()
+{
+var items = document.getElementsByClassName("out");
+var itemCount = items.length;
+var total = 0;
+for(var i = 0; i < itemCount; i++)
+{
+total = total + parseFloat(items[i].value);
+}
+document.getElementById('tot').value = total.toFixed(2);
 }
 </script>
