@@ -45,4 +45,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 # gem "twitter-bootstrap-rails"
 
 # ruby
-  ruby "2.2.4"
+  ruby "2.0.0"
